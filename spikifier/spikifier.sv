@@ -5,7 +5,7 @@
 `endif
 
 module spikifier(v_sig, v_ref, clk, q);
-	parameter real G = 0.1;
+	parameter real G = 0.0005;
 	parameter real COMP_DELAY = 4e-9;
 	parameter real COMP_OFFSET = 450e-6;
 
@@ -29,7 +29,10 @@ module spikifier(v_sig, v_ref, clk, q);
 		status = 0;
 
 		if (~clk) begin
-			state = state + ((v_sig + input_noise) * G);
+			state <= state + ((v_sig + input_noise) * G);
+		end
+		else begin
+			state <= 0;
 		end
 	end
 
@@ -43,6 +46,7 @@ module spikifier(v_sig, v_ref, clk, q);
 
 	always @(negedge clk) begin
 		q <= 0;
+		state <= 0;
 	end
 			
 endmodule
