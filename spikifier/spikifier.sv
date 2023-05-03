@@ -1,7 +1,7 @@
 `timescale 1ps/1ps
 
 `ifndef NOISE_FILE
-	`define NOISE_FILE "new_noise.txt"
+	`define NOISE_FILE "noise.txt"
 `endif
 
 module spikifier(v_sig, v_ref, clk, q);
