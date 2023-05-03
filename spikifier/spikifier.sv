@@ -1,19 +1,21 @@
 `timescale 1ps/1ps
 
 `ifndef NOISE_FILE
-	`define NOISE_FILE "noise.txt"
+	`define NOISE_FILE "new_noise.txt"
 `endif
 
 module spikifier(v_sig, v_ref, clk, q);
 	parameter real G = 0.0005;
-	parameter real COMP_DELAY = 4e-9;
+	parameter real COMP_DELAY = 2000;
 	parameter real COMP_OFFSET = 450e-6;
 
 	input real v_sig, v_ref;
 	input clk;
 	output reg q;
 
-	real state, input_noise, delay_noise, offset_noise;
+	real state;
+	real input_noise, delay_noise, offset_noise;
+	int q_delay;
 	int status, fd;
 
 	initial begin
@@ -38,9 +40,10 @@ module spikifier(v_sig, v_ref, clk, q);
 
 	always @(posedge clk) begin
 		if (state > (v_ref + offset_noise)) begin
-			#(delay_noise + COMP_DELAY)
-			q <= 1;
-			state <= 0;
+			q_delay <= delay_noise + COMP_DELAY;
+
+			q <= #q_delay 1;
+			state <= #COMP_DELAY 0;
 		end
 	end
 
@@ -48,5 +51,5 @@ module spikifier(v_sig, v_ref, clk, q);
 		q <= 0;
 		state <= 0;
 	end
-			
+
 endmodule
