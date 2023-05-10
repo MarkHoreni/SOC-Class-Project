@@ -1,7 +1,7 @@
 ---
 title: A Real-time, Spiking SoC for Edge RF Inference
 date: 2023-05-14
-author: Jon Cowart, Zephan Enciso, Mark Horeni, and Clemens Schæfer
+author: Jon Cowart, Zephan Enciso, Mark Horeni, and Clemens Schaefer
 geometry: margin=25.4mm
 ---
 
