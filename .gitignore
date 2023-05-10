@@ -1,0 +1,6 @@
+spikifier/xcelium.d/*
+spikifier/.bpad
+spikifier/.simvision/*
+spikifier/waves.shm/*
+spikifier/xrun.*
+.nvim/*
