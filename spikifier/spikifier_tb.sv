@@ -18,17 +18,17 @@ module spikifier_tb;
 		fd = $fopen(`SIG_FILE, "r");
 		clk = 0;
 		v_sig = 0;
-		v_ref = 0.11;
+		v_ref = 0.42;
 	end
 
 	always
-		#5000 clk = ~clk;
+		#50000 clk = ~clk;
 
 	always
-		#10 status = $fscanf(fd, "%f", v_sig);
+		#300 status = $fscanf(fd, "%f", v_sig);
 
 	always
-		#100000 $stop;
+		#1000000 $stop;
 
 	spikifier dut (.*);
 

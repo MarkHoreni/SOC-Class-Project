@@ -5,7 +5,7 @@
 `endif
 
 module spikifier(v_sig, v_ref, clk, q);
-	parameter real G = 0.0005;
+	parameter real G = 0.005;
 	parameter real COMP_DELAY = 2000;
 	parameter real COMP_OFFSET = 450e-6;
 
