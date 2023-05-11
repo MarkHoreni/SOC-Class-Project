@@ -65,9 +65,11 @@ For a baseline, we simulate our system on our simple RISC-V core (no
 out-of-order execution, simple sequential pipelining) using
 `riscv64-unknown-elf-gcc` from **RISCV-tools** and the `riscv64-unknown-elf`
 kernel on **Spike**, an ISA simualtor.  Not including rate counting to produce
-an output classification, the core comptuation kernel requires $X$ clock cycles
-per timestep on the RISC-V core, while our accelerator needs only $16$.
-Therefore, we assert the utility of accelerating this task.
+an output classification, the core comptuation kernel requires over 180 thousand
+operations per timestep on the RISC-V core, while our accelerator needs only 16
+clock cycles.  With real-time processing and an ideal CPI of 1, the
+un-accelerated version running at the same core clock would only be able to
+handle an input signal sampled at less than 1 kHz.
 
 
 #   Spikifier
