@@ -63,9 +63,9 @@ Figure 2: Pipelined system timing.  Note the overlap between the spikifier
 
 | Group Member  | Task                                                      |
 |---------------|-----------------------------------------------------------|
-| Jon           | RTL and Validation                                        |
-| Zephan        | System Architecture and Analog Behavioral Model           |
-| Mark          | System Architecture and RISC-V computation kernel         |
+| Jon           | RTL and validation                                        |
+| Zephan        | System architecture and analog behavioral model           |
+| Mark          | System architecture and RISC-V computation kernel         |
 | Clemens       | Synthesis and Implementation                              |
 
 
