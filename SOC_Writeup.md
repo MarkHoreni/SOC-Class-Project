@@ -134,6 +134,22 @@ RISC-V reset signal, so it may also be reset externally.
 
 ## Processing Element Behavioral Model
 
+![](./SoC_Waveform_5_14_2023__V2.png)
+Figure 4: PE output waveform. 
+
+The output waveform from the PE can be seen in Figure (4). The test bench for the
+PE included a few simple phases to test the validity of the model. The “clk” 
+signal operated at the standard 160 MHz and synchronized the PE. “reset” signal 
+was used before start-up to ensure all signals were initialized before 
+other signals were processed. 
+
+After “reset” was driven low, data was loaded into the threshold and weight 
+registers through the “data_in” wire. Once the registers were loaded with data, 
+the RISC_V controlled the read / write into the PE using the “risc_v_read” and
+“risc_v_write” signals, respectively. During this stage, data was fed into the
+system and processed using the algorithm discussed in the previous section. 
+If a spike was detected, the “spike_detected” signal was driven to logic high. 
+
 ## Physical Implementation
 
 We successfully finsihed synthesis and passed timing checks with no negative slack. Furthermore all files have been created. We used the following constraints file:
