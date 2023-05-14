@@ -132,6 +132,8 @@ unsigned integer, exceeding the maximum representable value will cause rollover.
 As previously mentioned, the membrane potential register is susceptible to the
 RISC-V reset signal, so it may also be reset externally. 
 
+## Processing Element Behavioral Model
+
 ##  Physical Implementation
 
 
